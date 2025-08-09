@@ -1,25 +1,30 @@
 using System;
 using System.Collections;
+using Supabase;
+using BackendEnvironmentSpace = backend.Environment.Main.Models;
 
-var url = Environment.GetEnvironmentVariable("API_URL");      
-var key = Environment.GetEnvironmentVariable("API_KEY");
 
-IDictionary environmentVariables = Environment.GetEnvironmentVariables();
-
-foreach (DictionaryEntry entry in environmentVariables)
+var env = new BackendEnvironmentSpace.Environment();
+var supabaseOptions = new SupabaseOptions
 {
-    if (entry.Key == "API_URL" || entry.Key == "API_KEY")
-    { 
-        Console.WriteLine($"{entry.Key} = {entry.Value}");
-    }
-}
+    AutoRefreshToken = true,
+    AutoConnectRealtime = true
+};
 
-Console.WriteLine($"\nurl: {url}, key: {key}\n");
+
+Console.WriteLine($"\nurl: {env.secrets.supabase.URL}, key: {env.secrets.supabase.Key}\n");
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddSingleton(
+    provider => new Supabase.Client(
+        env.secrets.supabase.URL,
+        env.secrets.supabase.Key,
+        supabaseOptions
+    )
+);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
