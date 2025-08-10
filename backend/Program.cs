@@ -1,45 +1,57 @@
-using System;
-using System.Collections;
+using backend.Database.Table.Models;
+using Supabase;
+using BackendEnvironmentSpace = backend.Environment.Main.Models;
 
-var url = Environment.GetEnvironmentVariable("API_URL");      
-var key = Environment.GetEnvironmentVariable("API_KEY");
 
-IDictionary environmentVariables = Environment.GetEnvironmentVariables();
-
-foreach (DictionaryEntry entry in environmentVariables)
+var env = new BackendEnvironmentSpace.Environment();
+var supabaseOptions = new SupabaseOptions
 {
-    if (entry.Key == "API_URL" || entry.Key == "API_KEY")
-    { 
-        Console.WriteLine($"{entry.Key} = {entry.Value}");
-    }
-}
+    AutoRefreshToken = true,
+    AutoConnectRealtime = true,
+    SessionHandler = new DefaultSupabaseSessionHandler()
+};
 
-Console.WriteLine($"\nurl: {url}, key: {key}\n");
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddControllers().AddNewtonsoftJson();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "_ReactCors", policy =>
+    {
+        policy
+         .SetIsOriginAllowed((host) =>
+         {
+             return true;
+         })
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials();
+    });
+});
+
+builder.Services.AddSingleton(
+    provider => new Supabase.Client(
+        env.secrets.supabase.URL,
+        env.secrets.supabase.Key,
+        supabaseOptions
+    )
+);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
+app.UseCors("_ReactCors");
 app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"
-);
+app.MapControllers();
+app.UseHttpsRedirection();
 
 app.Run();
