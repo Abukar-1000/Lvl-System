@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { ThemeProvider } from '@mui/material/styles';
+import { DarkTheme } from './Themes/DarkTheme';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Main from './Pages/Main';
+import Providers from './Providers';
 
+const queryClient = new QueryClient(); 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Providers
+      theme={DarkTheme}
+      client={queryClient}
+    >
+      <Main />
+    </Providers>
   );
 }
 
