@@ -2,6 +2,7 @@ import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import useGetAllSkills from "../Hooks/Skill/useGetAllSkills";
 import SkillCard from "../Components/Skill/SkillCard";
+import StatCard from "../Components/Skill/StatCard";
 
 
 
@@ -30,6 +31,7 @@ export default function Main() {
                             query.data.map(entry => (<SkillCard query={entry}/>))
                         )
                     }
+                    {/* <StatCard /> */}
                 </Stack>
             </Stack>
         </Container>

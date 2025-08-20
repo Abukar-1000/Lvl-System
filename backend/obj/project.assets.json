@@ -1450,24 +1450,32 @@
     ]
   },
   "packageFolders": {
-    "/Users/abukar/.nuget/packages/": {}
+    "C:\\Users\\Abuka\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/abukar/Desktop/SideProject/Lvl-System/backend/backend.csproj",
+      "projectUniqueName": "C:\\Users\\Abuka\\OneDrive\\Desktop\\Lvl-System\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "/Users/abukar/Desktop/SideProject/Lvl-System/backend/backend.csproj",
-      "packagesPath": "/Users/abukar/.nuget/packages/",
-      "outputPath": "/Users/abukar/Desktop/SideProject/Lvl-System/backend/obj/",
+      "projectPath": "C:\\Users\\Abuka\\OneDrive\\Desktop\\Lvl-System\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\Abuka\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Abuka\\OneDrive\\Desktop\\Lvl-System\\backend\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/abukar/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Abuka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WinUI\\24.2.3\\NuGetPackages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1480,11 +1488,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1531,7 +1534,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.413/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

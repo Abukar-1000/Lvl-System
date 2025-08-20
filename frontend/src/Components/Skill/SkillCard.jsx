@@ -7,22 +7,31 @@ import AirIcon from '@mui/icons-material/Air';
 import Typography from "@mui/material/Typography";
 import LinearProgress from "@mui/material/LinearProgress";
 import DonutSmallIcon from '@mui/icons-material/DonutSmall';
+import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import SkillAttribute from "./SkillAttribute";
 import { indigo } from '@mui/material/colors';
+import { useState } from "react";
+import { BlurCard } from "../../Themes/BlurTheme";
 
 // Add Blur to card
 export default function SkillCard({ query }) {
     const avatarSize = 216;
     const progress = (query.completed_Objectives / query.total_Objectives) * 100
+    const [ isMouseOver, setIsMouseOver  ] = useState(false);
+
     return (
         <Paper
+            onMouseEnter={e => setIsMouseOver(true)}
+            onMouseLeave={e => setIsMouseOver(false)}
+            elevation={ isMouseOver? 24 : 2}
+            onClick={e => alert(`Sending request for ${query.name}`)}
             sx={{
                 padding: "1rem",
                 minWidth: "200px",
-                borderRadius: "10px"
+                borderRadius: "10px",
+                ...BlurCard
             }}
-            elevation={2}
         >
             <Stack
                 gap={5}
@@ -57,9 +66,13 @@ export default function SkillCard({ query }) {
                     >
                         <Chip 
                             label={query.category}
+                            icon={
+                                <SpaceDashboardIcon 
+                                    color="secondary"
+                                />
+                            }
                             color="secondary"
                             variant="contained"
-                            size="medium"
                         />
                     </Box>    
                 </Stack>
@@ -142,7 +155,7 @@ export default function SkillCard({ query }) {
                             }
                             sx={{
                                 border: "none",
-                                color: indigo["100"]
+                                // color: indigo["100"]
                             }}
                         />
 
