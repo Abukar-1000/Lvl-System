@@ -9,11 +9,11 @@ export default function NeonFlowField({
   color = "#9b5cff",           // main neon color (purple)
   accent = "#7cf3ff",          // optional secondary tint
   density = 0.35,              // particles per 1,000 px² (0.25–0.6 looks good)
-  lineWidth = [0.6, 1.3],      // min/max stroke width
+  lineWidth = [0.6, 3.3],      // min/max stroke width
   blur = 18,                   // glow strength
   fade = 0.07,                 // trail fade amount per frame (0.05–0.12)
   speed = 1.8,                 // particle speed multiplier
-  scale = 0.0028               // noise scale (smaller = larger swirls)
+  scale = 0.008               // noise scale (smaller = larger swirls)
 }) {
   const ref = useRef(null);
   const raf = useRef(0);
@@ -110,7 +110,7 @@ export default function NeonFlowField({
       // subtle fade to create trails
       ctx.save();
       ctx.globalCompositeOperation = "source-over";
-      ctx.fillStyle = `rgba(0,0,0,${fade})`; // if your card has a bg, this should match it
+      ctx.fillStyle = `rgba(255,255,255,${fade})`; // if your card has a bg, this should match it
       ctx.fillRect(0, 0, w, h);
       ctx.restore();
 
@@ -183,7 +183,10 @@ export default function NeonFlowField({
       ref={ref}
       className="absolute inset-0 w-full h-full pointer-events-none"
       style={{ 
-        mixBlendMode: "screen" 
+        mixBlendMode: "screen",
+        height: "40dvh",
+        width: "40dvw",
+        borderRadius: "10px"
       }} // lets neon blend with your card nicely
     />
   );

@@ -1,3 +1,4 @@
+import { purple } from "@mui/material/colors";
 import NeonFlowField from "./NeonFlowField";
 
 export default function StatCard() {
@@ -12,12 +13,12 @@ export default function StatCard() {
 
       {/* neon paths behind content */}
       <NeonFlowField
-        color="#b56cff"
-        accent="#6af2ff"
-        density={0.4}
-        fade={0}
-        blur={20}
-        speed={2.0}
+        color={purple["A400"]}
+        accent={purple["200"]}
+        density={1.6}
+        fade={0.01}
+        blur={10}
+        speed={1.65}
       />
     </div>
   );
