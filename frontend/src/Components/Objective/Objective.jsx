@@ -14,6 +14,14 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 export default function Objective({ data }) {
 
     const completion = `${data?.completed} / ${data?.total}`;
+    const time = new Date(data?.end).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    }) 
     return (
         <SoloLevelingPaper
             sx={{
@@ -64,7 +72,7 @@ export default function Objective({ data }) {
                     size={{ xl: 3 }}
                 >
                     <Chip 
-                        label={data?.end}
+                        label={time}
                         icon={<AccessTimeIcon />}
                         color="secondary"
                     />
