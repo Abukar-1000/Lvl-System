@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Main from './Pages/Main';
 import Providers from './Providers';
 import VideoBackground from './Components/Baclground/VideoBackground';
+import { RouterProvider } from 'react-router';
+import Router from './Routes';
 
 const queryClient = new QueryClient(); 
 function App() {
@@ -15,7 +17,8 @@ function App() {
       client={queryClient}
     >
       <VideoBackground src={"vids/credits_18.mp4"}>
-        <Main />
+        <RouterProvider router={Router}/>
+        {/* <Main /> */}
       </VideoBackground>
     </Providers>
   );

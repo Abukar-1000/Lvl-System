@@ -185,7 +185,7 @@ export default function NeonFlowField({
       style={{ 
         mixBlendMode: "screen",
         height: "40dvh",
-        width: "40dvw",
+        width: "100dvw",
         borderRadius: "10px"
       }} // lets neon blend with your card nicely
     />
