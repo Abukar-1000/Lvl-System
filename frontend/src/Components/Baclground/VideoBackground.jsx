@@ -36,6 +36,7 @@ export default function VideoBackground({ src, children }) {
                 }}
             >
                 <video
+                    key={src + "vsh"}
                     style={{
                         width: "100%",
                         height: "100%",
@@ -44,6 +45,7 @@ export default function VideoBackground({ src, children }) {
                     src={src}
                     autoPlay={true}
                     loop={true}
+                    muted={true}
                 />
             </Box>
         </Box>

@@ -16,7 +16,7 @@ function App() {
       theme={DarkTheme}
       client={queryClient}
     >
-      <VideoBackground src={"vids/credits_18.mp4"}>
+      <VideoBackground src={"vids/SHINSUIS_BANKAI_1.mp4"}>
         <RouterProvider router={Router}/>
         {/* <Main /> */}
       </VideoBackground>
