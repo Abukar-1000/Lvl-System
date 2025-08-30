@@ -1,5 +1,6 @@
 using backend.Database.Table.Models;
 using Supabase;
+using Dropbox.Api;
 using BackendEnvironmentSpace = backend.Environment.Main.Models;
 
 
@@ -37,6 +38,18 @@ builder.Services.AddSingleton(
     )
 );
 
+builder.Services.AddSingleton(
+    provider => new DropboxClient(env.secrets.dropbox.Token)
+);
+
+// builder.Services.AddSingleton(
+//     provider => new DropboxClient(
+//         env.secrets.dropbox.Token,
+//         env.secrets.dropbox.Key,
+//         env.secrets.dropbox.Secret,
+//         new DropboxClientConfig("AbukarsBoxAccess")
+//     )
+// );
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

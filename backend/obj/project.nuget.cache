@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "plEk9SGp+GjYG6c6dsp+C1BqZFqYccYhEsgxQouLy3nTVFne3JicdZLLZ9kuadhjjywgYz7yPJMSIPmGsp2dCQ==",
+  "dgSpecHash": "u1oJYy7NHVHvpOmXwKwVYZuAXs/uHqA+bibiB65K4JSL7uwq2AQ4eLQrM+cafBjSvd9fR4BJZi9pHvANRL0QOg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Abuka\\OneDrive\\Desktop\\Lvl-System\\backend\\backend.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Abuka\\.nuget\\packages\\dropbox.api\\7.0.0\\dropbox.api.7.0.0.nupkg.sha512",
     "C:\\Users\\Abuka\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.7\\microsoft.aspnetcore.jsonpatch.8.0.7.nupkg.sha512",
     "C:\\Users\\Abuka\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.7\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.7.nupkg.sha512",
     "C:\\Users\\Abuka\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.1\\microsoft.aspnetcore.openapi.8.0.1.nupkg.sha512",

@@ -17,6 +17,9 @@ namespace backend.Environment.Main.Models
 
             var URL = config["Secrets:SUPABASE_URL"];
             var Key = config["Secrets:SUPABASE_KEY"];
+            var dropboxKey = config["Secrets:DROPBOX_KEY"];
+            var dropboxSecret = config["Secrets:DROPBOX_SECRET"];
+            var dropboxToken = config["Secrets:DROPBOX_TOKEN"];
 
             if (URL is null)
             {
@@ -32,9 +35,33 @@ namespace backend.Environment.Main.Models
                 );
             }
 
+            if (dropboxKey is null)
+            {
+                throw new MissingFieldException(
+                    this.GenerateMissingMessage("Dropbox 'Key'", "'Secrets' field")
+                );
+            }
+
+            if (dropboxSecret is null)
+            {
+                throw new MissingFieldException(
+                    this.GenerateMissingMessage("Dropbox 'Secret'", "'Secrets' field")
+                );
+            }
+
+            if (dropboxToken is null)
+            {
+                throw new MissingFieldException(
+                    this.GenerateMissingMessage("Dropbox 'Token'", "'Secrets' field")
+                );
+            }
+
             
             this.secrets.supabase.URL = URL;
             this.secrets.supabase.Key = Key;
+            this.secrets.dropbox.Key = dropboxKey;
+            this.secrets.dropbox.Secret = dropboxSecret;
+            this.secrets.dropbox.Token = dropboxToken;
         }
 
         protected string GenerateMissingMessage(string field, string category)
