@@ -41,6 +41,16 @@ public class JournalController : Controller
         return response;
     }
 
+    [HttpGet("Pages")]
+    public async Task<List<Journal>> GetPages()
+    {
+        var journalQuery = await supabase
+            .From<Journal>()
+            .Get();
+
+        return journalQuery.Models;
+    }
+
     [HttpPost("Upload/Page")]
     public async Task<Generic> UploadPage(UploadPage page)
     {
