@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import Main from "./Pages/Main";
 import Objectives from "./Pages/Objectives";
+import Journals from "./Pages/Journals";
 
 
 const Router = createBrowserRouter([
@@ -11,6 +12,10 @@ const Router = createBrowserRouter([
   {
     path: "/skillboard", 
     Component: Main
+  },
+  {
+    path: "/journals", 
+    Component: Journals
   }
 ]);
 
