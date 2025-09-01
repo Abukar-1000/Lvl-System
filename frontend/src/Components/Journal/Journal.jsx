@@ -1,12 +1,11 @@
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
-import Paper from "@mui/material/Paper";
 import { useState } from "react";
 import SoloLevelingPaper from "../CustomPapers/SoloLevelingPaper";
 import Grid from "@mui/material/Grid";
 import BookIcon from '@mui/icons-material/Book';
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 
 /**
  * Add journal name parameter to routing
@@ -19,7 +18,7 @@ export default function Journal({ data }) {
     const [isMouseOver, setIsMouseOver] = useState(false);
     return (
         <Box>
-            <NavLink to={`/journals/journal/${data.name}`}>
+            <Link to={`/journals/${data.name}`}>
                 <SoloLevelingPaper
                     sx={{
                         width: `${width}dvw`,
@@ -60,7 +59,7 @@ export default function Journal({ data }) {
                         </Grid>
                     </Grid>
                 </SoloLevelingPaper>
-            </NavLink>
+            </Link>
         </Box>
     );
 }

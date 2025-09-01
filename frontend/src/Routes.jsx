@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Main from "./Pages/Main";
 import Objectives from "./Pages/Objectives";
 import Journals from "./Pages/Journals";
+import Journal from "./Pages/Journal";
 
 
 const Router = createBrowserRouter([
@@ -16,6 +17,10 @@ const Router = createBrowserRouter([
   {
     path: "/journals", 
     Component: Journals
+  },
+  {
+    path: "/journals/:name", 
+    Component: Journal
   }
 ]);
 

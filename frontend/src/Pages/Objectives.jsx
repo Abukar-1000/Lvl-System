@@ -9,7 +9,6 @@ import Objective from "../Components/Objective/Objective";
 export default function Objectives({  }) {
 
     const objectivesQuery = useGetAllObjectives();
-    console.log(objectivesQuery?.data)
     return (
         <Container 
             maxWidth={"xl"}
